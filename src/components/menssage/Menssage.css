@@ -1,0 +1,10 @@
+ .description{
+    display:flex;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: var(--color-primary);
+    align-items: center;
+    bottom: 0;
+    color: var(--color-secondary);
+}
