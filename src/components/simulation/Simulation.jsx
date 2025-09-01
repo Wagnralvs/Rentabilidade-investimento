@@ -1,12 +1,13 @@
 import { useState } from "react";
-import  "./Simulation.css"
+import  "./Simulation.css";
+import { IMaskInput } from "react-imask";
+
 
 export default function Simulation({ setShowResultView , setDataSimulator}) {
   const [valorStart, setValorStart] = useState("");
   const [taxa, setTaxa] = useState("");
   const [valorMonthly, setValorMonthly] = useState("");
   const [timeAplication, setTimeAplication] = useState("");
-  const [result, setResult] = useState(0)
 
   const valueTotalSimulation = () => {
     let valor = +valorStart;
@@ -18,7 +19,7 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
         valor = (valor * (1 + taxaMonthly) + monthlyInvest).toFixed(2);
         console.log(i , valor)
     }
-    setResult(valor);
+ 
     setDataSimulator({
       valorInvest: +valorStart + (monthlyInvest * timeInvest),
       timeAplication: timeInvest,
@@ -37,12 +38,17 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <input
-                type="number"
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
+                mapToRadix={[".", ","]}
                 id="valorStart"
                 class="form-control form-control-lg"
                 value={valorStart}
-                onChange={(e)=> setValorStart(e.target.value)}
+                onAccept={(value, mask) => setValorStart(mask.unmaskedValue)}
+                // onChange={(e) => setValorStart(e.target.value)}
               />
             </div>
           </div>
@@ -51,12 +57,15 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
               Rentabilidade
             </label>
             <div class="input-group">
-              <input
-                type="number"
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 id="taxa"
                 class="form-control form-control-lg"
                 value={taxa}
-                onChange={(e)=> setTaxa(e.target.value)}
+                onAccept={(value, mask) => setTaxa(mask.unmaskedValue)}
               />
               <span class="input-group-text">% ao ano</span>
             </div>
@@ -67,12 +76,15 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <input
-                type="number"
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 id="valorMonthly"
                 class="form-control form-control-lg"
                 value={valorMonthly}
-                onChange={(e)=> setValorMonthly(e.target.value)}
+                onAccept={(value, mask) => setValorMonthly(mask.unmaskedValue)}
               />
             </div>
           </div>
@@ -86,16 +98,21 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
                 id="taxa"
                 class="form-control form-control-lg"
                 value={timeAplication}
-                onChange={(e)=> setTimeAplication(e.target.value)}
+                onChange={(e) => setTimeAplication(e.target.value)}
               />
               <span class="input-group-text">meses</span>
             </div>
           </div>
           <div class="d-flex align-items-end justify-content-end pt-4">
-              <button type="button"  class="btn btn-primary" onClick={valueTotalSimulation}><i class="bi bi-floppy"></i> Calcular</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onClick={valueTotalSimulation}
+            >
+              <i class="bi bi-floppy"></i> Calcular
+            </button>
           </div>
         </form>
-       
       </div>
     );
 }

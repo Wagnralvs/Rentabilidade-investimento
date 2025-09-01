@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-//import { getDataSimulator, dataSimulator } from "../../shared/services/dataService";
+import { IMaskInput } from "react-imask";
 
 export default function Result ({setShowResultView, getDataSimulator}){
     const [compoundInterest, setCompoundInterest ] = useState(0);
@@ -13,12 +13,11 @@ export default function Result ({setShowResultView, getDataSimulator}){
         setValorInvest(getDataSimulator.valorInvest);
         setTimeAplication(getDataSimulator.timeAplication);
         setValorBruto(getDataSimulator.valorBruto);
-   
-      console.log("2 Data received in Result:",valorInvest, timeAplication, valorBruto);
+        debugger
         let aliquota = 0;
         const days = timeAplication * 30;
         
-        if(days <= 180) aliquota = 0.0225;
+        if(days <= 180) aliquota = 0.225;
         else if(days <= 360) aliquota = 0.20;
         else if(days <= 720) aliquota = 0.175;
         else aliquota = 0.15;
@@ -30,9 +29,7 @@ export default function Result ({setShowResultView, getDataSimulator}){
      return () => {
        // subscription.unsubscribe();
       };
-    }, [ valorInvest, timeAplication, valorBruto, valorRealLiqui ]);
-
-    // calculationIR();
+    }, [ valorInvest, timeAplication, valorBruto ]);
 
     return (
         <div>
@@ -44,9 +41,12 @@ export default function Result ({setShowResultView, getDataSimulator}){
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <input
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 readOnly
-                type="number"
                 id="valorInvest"
                 class="form-control form-control-lg"
                 value={valorInvest.toFixed(2)}
@@ -58,9 +58,12 @@ export default function Result ({setShowResultView, getDataSimulator}){
               Juros Ganhos com juros compostos
             </label>
             <div class="input-group">
-              <input
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 readOnly
-                type="number"
                 id="compoundInterest"
                 class="form-control form-control-lg"
                 value={compoundInterest.toFixed(2)}
@@ -73,9 +76,12 @@ export default function Result ({setShowResultView, getDataSimulator}){
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <input
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 readOnly
-                type="number"
                 id="valorBruto"
                 class="form-control form-control-lg"
                 value={valorBruto.toFixed(2)}
@@ -101,9 +107,12 @@ export default function Result ({setShowResultView, getDataSimulator}){
               Total a Receber
             </label>
             <div class="input-group">
-              <input
+              <IMaskInput
+                mask={Number}
+                radix=","
+                scale={2}
+                thousandsSeparator="."
                 readOnly
-                type="number"
                 id="valorRealLiqui"
                 class="form-control form-control-lg"
                 value={valorRealLiqui.toFixed(2)}
