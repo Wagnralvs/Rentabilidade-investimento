@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react"
 import { IMaskInput } from "react-imask";
+import { convertToBrl } from "../../shared/services/dataService";
 
 export default function Result ({setShowResultView, getDataSimulator}){
     const [compoundInterest, setCompoundInterest ] = useState(0);
     const [valorRealLiqui, setValorRealLiqui] = useState(0);
     const [IR, setIR] = useState(0);
-    const [valorInvest, setValorInvest] = useState(0);
-    const [timeAplication, setTimeAplication] = useState(0);
-    const [valorBruto, setValorBruto] = useState(0);
-
+    const [getValorInvest, setValorInvest] = useState(0);
+    const [getTimeAplication, setTimeAplication] = useState(0);
+    const [getValorBruto, setValorBruto] = useState(0);
+    const { timeAplication, valorBruto, valorInvest } = getDataSimulator;
+    
     useEffect(() => {
-        setValorInvest(getDataSimulator.valorInvest);
-        setTimeAplication(getDataSimulator.timeAplication);
-        setValorBruto(getDataSimulator.valorBruto);
-        debugger
+        setValorInvest(valorInvest);
+        setTimeAplication(timeAplication);
+        setValorBruto(valorBruto);
+
         let aliquota = 0;
-        const days = timeAplication * 30;
+        const days = getTimeAplication * 30;
         
         if(days <= 180) aliquota = 0.225;
         else if(days <= 360) aliquota = 0.20;
@@ -23,13 +25,14 @@ export default function Result ({setShowResultView, getDataSimulator}){
         else aliquota = 0.15;
         
         setIR(aliquota * 100);
-        setValorRealLiqui(valorInvest + ((valorBruto - valorInvest) * (1 - aliquota)));
-        setCompoundInterest(valorBruto - valorInvest);
-
+        setValorRealLiqui(getValorInvest + ((getValorBruto - getValorInvest) * (1 - aliquota)));
+        setCompoundInterest(getValorBruto - getValorInvest);
+        console.log("valorRealLiqui", valorRealLiqui);
+        console.log("compoundInterest", compoundInterest);  
      return () => {
        // subscription.unsubscribe();
       };
-    }, [ valorInvest, timeAplication, valorBruto ]);
+    }, [ getValorInvest, getTimeAplication, getValorBruto ]);
 
     return (
         <div>
@@ -41,15 +44,11 @@ export default function Result ({setShowResultView, getDataSimulator}){
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
                 readOnly
                 id="valorInvest"
                 class="form-control form-control-lg"
-                value={valorInvest.toFixed(2)}
+                value={convertToBrl(getValorInvest)}
               />
             </div>
           </div>
@@ -58,15 +57,11 @@ export default function Result ({setShowResultView, getDataSimulator}){
               Juros Ganhos com juros compostos
             </label>
             <div class="input-group">
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
                 readOnly
                 id="compoundInterest"
                 class="form-control form-control-lg"
-                value={compoundInterest.toFixed(2)}
+                value={convertToBrl(compoundInterest)}
               />
             </div>
           </div>
@@ -76,15 +71,11 @@ export default function Result ({setShowResultView, getDataSimulator}){
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
                 readOnly
                 id="valorBruto"
                 class="form-control form-control-lg"
-                value={valorBruto.toFixed(2)}
+                value={convertToBrl(getValorBruto)}
               />
             </div>
           </div>
@@ -107,15 +98,11 @@ export default function Result ({setShowResultView, getDataSimulator}){
               Total a Receber
             </label>
             <div class="input-group">
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
                 readOnly
                 id="valorRealLiqui"
                 class="form-control form-control-lg"
-                value={valorRealLiqui.toFixed(2)}
+                value={convertToBrl(valorRealLiqui)}
               />
             </div>
           </div>
