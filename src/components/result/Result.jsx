@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { IMaskInput } from "react-imask";
 import { convertToBrl } from "../../shared/services/dataService";
 
 export default function Result ({setShowResultView, getDataSimulator}){
@@ -32,7 +31,7 @@ export default function Result ({setShowResultView, getDataSimulator}){
      return () => {
        // subscription.unsubscribe();
       };
-    }, [ getValorInvest, getTimeAplication, getValorBruto ]);
+    }, [ getValorInvest, getTimeAplication, getValorBruto, valorBruto, valorInvest, timeAplication, compoundInterest, valorRealLiqui]);
 
     return (
         <div>
