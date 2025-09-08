@@ -3,7 +3,7 @@ export default function Home (){
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a>Home</a>
+          <button>Home</button>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
           Rentabilidade
