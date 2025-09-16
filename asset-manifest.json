@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Wagnralvs/Rentabilidade-investimento/static/css/main.2d2f24d1.css",
-    "main.js": "/Wagnralvs/Rentabilidade-investimento/static/js/main.e1b2bd2b.js",
-    "static/js/453.52373a13.chunk.js": "/Wagnralvs/Rentabilidade-investimento/static/js/453.52373a13.chunk.js",
-    "index.html": "/Wagnralvs/Rentabilidade-investimento/index.html",
-    "main.2d2f24d1.css.map": "/Wagnralvs/Rentabilidade-investimento/static/css/main.2d2f24d1.css.map",
-    "main.e1b2bd2b.js.map": "/Wagnralvs/Rentabilidade-investimento/static/js/main.e1b2bd2b.js.map",
-    "453.52373a13.chunk.js.map": "/Wagnralvs/Rentabilidade-investimento/static/js/453.52373a13.chunk.js.map"
+    "main.css": "/Rentabilidade-investimento/static/css/main.2d2f24d1.css",
+    "main.js": "/Rentabilidade-investimento/static/js/main.2e082305.js",
+    "static/js/453.52373a13.chunk.js": "/Rentabilidade-investimento/static/js/453.52373a13.chunk.js",
+    "index.html": "/Rentabilidade-investimento/index.html",
+    "main.2d2f24d1.css.map": "/Rentabilidade-investimento/static/css/main.2d2f24d1.css.map",
+    "main.2e082305.js.map": "/Rentabilidade-investimento/static/js/main.2e082305.js.map",
+    "453.52373a13.chunk.js.map": "/Rentabilidade-investimento/static/js/453.52373a13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2d2f24d1.css",
-    "static/js/main.e1b2bd2b.js"
+    "static/js/main.2e082305.js"
   ]
 }
