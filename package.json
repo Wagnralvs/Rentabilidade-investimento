@@ -1,7 +1,7 @@
 {
   "name": "calculadora-rentabilidades",
   "version": "0.1.0",
-  "homepage": "https://github.com/Wagnralvs/Rentabilidade-investimento",
+  "homepage": "Rentabilidade-investimento/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -18,12 +18,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "preview": "vite preview",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
-    "predeploy": "npm run build && cp build/index.html build/404.html"
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "@vitejs/plugin-react": "^4.7.0",
+    "gh-pages": "^6.3.0",
+    "vite": "^6.3.6"
   }
 }

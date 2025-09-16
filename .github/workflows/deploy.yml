@@ -9,7 +9,7 @@ permissions:
   contents: write   # necessário para publicar no gh-pages
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +26,6 @@ jobs:
 
       - name: Build do projeto
         run: npm run build
-
-      - name: Add .nojekyll
-        run: touch build/.nojekyll
 
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
