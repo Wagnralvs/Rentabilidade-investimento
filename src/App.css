@@ -1,8 +1,10 @@
 .App {
   display: flex;
+  height: 100vh;
 }
 .action{
-  flex:1
+  flex:1;
+  height: auto;
 }
 
 .App-logo {
@@ -12,7 +14,7 @@
 
 @media (max-width:700px) {
   .App{
-    display: block;
+    flex-direction: column;
   }
 }
 

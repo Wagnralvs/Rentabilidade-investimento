@@ -1,6 +1,6 @@
 import { useState } from "react";
 import  "./Simulation.css";
-import { IMaskInput } from "react-imask";
+import { convertToBrl } from "../../shared/services/dataService";
 
 
 export default function Simulation({ setShowResultView , setDataSimulator}) {
@@ -38,17 +38,13 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
-                mapToRadix={[".", ","]}
+              <input
+                type="number"
                 id="valorStart"
                 class="form-control form-control-lg"
-                value={valorStart}
-                onAccept={(value, mask) => setValorStart(mask.unmaskedValue)}
-                // onChange={(e) => setValorStart(e.target.value)}
+                value={convertToBrl(valorStart)}
+                //onAccept={(value, mask) => setValorStart(mask.unmaskedValue)}
+                 onChange={(e) => setValorStart(e.target.value)}
               />
             </div>
           </div>
@@ -57,15 +53,12 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
               Rentabilidade
             </label>
             <div class="input-group">
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
+                type="number"
                 id="taxa"
                 class="form-control form-control-lg"
                 value={taxa}
-                onAccept={(value, mask) => setTaxa(mask.unmaskedValue)}
+                onChange={(e) => setTaxa(e.target.value)}
               />
               <span class="input-group-text">% ao ano</span>
             </div>
@@ -76,15 +69,12 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
             </label>
             <div class="input-group">
               <span class="input-group-text">R$</span>
-              <IMaskInput
-                mask={Number}
-                radix=","
-                scale={2}
-                thousandsSeparator="."
+              <input
+                type="number"
                 id="valorMonthly"
                 class="form-control form-control-lg"
                 value={valorMonthly}
-                onAccept={(value, mask) => setValorMonthly(mask.unmaskedValue)}
+                onChange={(e) => setValorMonthly(e.target.value)}
               />
             </div>
           </div>
