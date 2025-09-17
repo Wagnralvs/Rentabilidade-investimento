@@ -97,6 +97,7 @@ export default function Simulation({ setShowResultView , setDataSimulator}) {
             <button
               type="button"
               class="btn btn-primary"
+              disabled={!(valorStart && taxa && timeAplication)}
               onClick={valueTotalSimulation}
             >
               <i class="bi bi-floppy"></i> Calcular
