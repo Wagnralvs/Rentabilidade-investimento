@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Rentabilidade-investimento/static/css/main.4ceccb20.css",
-    "main.js": "/Rentabilidade-investimento/static/js/main.d675ae72.js",
+    "main.js": "/Rentabilidade-investimento/static/js/main.7dfdec71.js",
     "static/js/453.52373a13.chunk.js": "/Rentabilidade-investimento/static/js/453.52373a13.chunk.js",
     "index.html": "/Rentabilidade-investimento/index.html",
     "main.4ceccb20.css.map": "/Rentabilidade-investimento/static/css/main.4ceccb20.css.map",
-    "main.d675ae72.js.map": "/Rentabilidade-investimento/static/js/main.d675ae72.js.map",
+    "main.7dfdec71.js.map": "/Rentabilidade-investimento/static/js/main.7dfdec71.js.map",
     "453.52373a13.chunk.js.map": "/Rentabilidade-investimento/static/js/453.52373a13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4ceccb20.css",
-    "static/js/main.d675ae72.js"
+    "static/js/main.7dfdec71.js"
   ]
 }
